@@ -3,48 +3,47 @@ package com.vtx.vtx_authorization_server.utils;
 public class App {
   public static void main(String[] args) {
 
-    Person source = new Person();
-    source.setFirstname("john");
-    source.setLastname("doe");
+    Person person = new Person();
+    person.setName("John doe");
+    person.setAge(22);
+
 
     Person target = new Person();
 
-    final var converter = PropertyConversions.applyWhenNonNullProperty();
-
-    converter.from(source::getFirstname).to(target::setFirstname);
-    converter.from(source::getLastname).to(target::setLastname);
+    PropertyMapper propertyMapper = PropertyMapper.getInstance();
+    propertyMapper.from(person::getName).to(target::setName);
+    propertyMapper.from(person::getAge).to(target::setAge);
 
     System.out.println(target);
   }
 }
 
-
 class Person {
-  private String firstname;
+  private String name;
 
-  private String lastname;
+  private int age;
 
-  public String getFirstname() {
-    return firstname;
+  public String getName() {
+    return name;
   }
 
-  public void setFirstname(String firstname) {
-    this.firstname = firstname;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public String getLastname() {
-    return lastname;
+  public int getAge() {
+    return age;
   }
 
-  public void setLastname(String lastname) {
-    this.lastname = lastname;
+  public void setAge(int age) {
+    this.age = age;
   }
 
   @Override
   public String toString() {
     return "Person{" +
-            "firstname='" + firstname + '\'' +
-            ", lastname='" + lastname + '\'' +
+            "name='" + name + '\'' +
+            ", age=" + age +
             '}';
   }
 }

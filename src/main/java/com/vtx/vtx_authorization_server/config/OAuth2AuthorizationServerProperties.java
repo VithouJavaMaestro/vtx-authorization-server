@@ -138,6 +138,13 @@ public class OAuth2AuthorizationServerProperties implements InitializingBean  {
 
     private String jwkSetEndpoint = "/oauth2/jwks";
 
+    private String tokenRevocationEndpoint = "/oauth2/revoke";
+
+    private String tokenIntrospectionEndpoint = "/oauth2/introspect";
+
+    @NestedConfigurationProperty
+    private OidcEndpoint oidc = new OidcEndpoint();
+
     public String getAuthorizationEndpoint() {
       return authorizationEndpoint;
     }
@@ -160,6 +167,52 @@ public class OAuth2AuthorizationServerProperties implements InitializingBean  {
 
     public void setJwkSetEndpoint(String jwkSetEndpoint) {
       this.jwkSetEndpoint = jwkSetEndpoint;
+    }
+
+    public OidcEndpoint getOidc() {
+      return oidc;
+    }
+
+    public void setOidc(OidcEndpoint oidc) {
+      this.oidc = oidc;
+    }
+
+    public String getTokenRevocationEndpoint() {
+      return tokenRevocationEndpoint;
+    }
+
+    public void setTokenRevocationEndpoint(String tokenRevocationEndpoint) {
+      this.tokenRevocationEndpoint = tokenRevocationEndpoint;
+    }
+
+    public String getTokenIntrospectionEndpoint() {
+      return tokenIntrospectionEndpoint;
+    }
+
+    public void setTokenIntrospectionEndpoint(String tokenIntrospectionEndpoint) {
+      this.tokenIntrospectionEndpoint = tokenIntrospectionEndpoint;
+    }
+  }
+
+  public static class OidcEndpoint {
+    private String logoutEndpoint = "/connect/logout";
+
+    private String userInfoEndpoint = "/userinfo";
+
+    public String getLogoutEndpoint() {
+      return logoutEndpoint;
+    }
+
+    public void setLogoutEndpoint(String logoutEndpoint) {
+      this.logoutEndpoint = logoutEndpoint;
+    }
+
+    public String getUserInfoEndpoint() {
+      return userInfoEndpoint;
+    }
+
+    public void setUserInfoEndpoint(String userInfoEndpoint) {
+      this.userInfoEndpoint = userInfoEndpoint;
     }
   }
 }

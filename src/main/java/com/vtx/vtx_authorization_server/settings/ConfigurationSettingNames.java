@@ -21,5 +21,11 @@ public final class ConfigurationSettingNames {
     public static final String USER_INFO_ENDPOINT = AUTHORIZATION_SERVER_SETTINGS_NAMESPACE.concat("user-info-endpoint");
 
     public static final String LOGOUT_ENDPOINT = AUTHORIZATION_SERVER_SETTINGS_NAMESPACE.concat("logout-endpoint");
+
+    public static final String JWK_SET_ENDPOINT = AUTHORIZATION_SERVER_SETTINGS_NAMESPACE.concat("jwk-set-endpoint");
+
+    public static final String TOKEN_REVOCATION_ENDPOINT = AUTHORIZATION_SERVER_SETTINGS_NAMESPACE.concat("token-revocation-endpoint");
+
+    public static final String TOKEN_INTROSPECTION_ENDPOINT = AUTHORIZATION_SERVER_SETTINGS_NAMESPACE.concat("token-introspection-endpoint");
   }
 }
